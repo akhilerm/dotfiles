@@ -2,6 +2,7 @@ alias vbm='VBoxManage'
 alias bfg='java -jar /opt/bfg.jar'
 alias ovpn='sudo openvpn --dev tun0 --persist-tun --config /home/akhil/.config/openvpn/client.ovpn'
 alias update='sudo apt-get update -y && sudo apt-get upgrade -y'
+alias wa-uae='google-chrome --user-data-dir=.config/google-chrome/CustomUser/UAEWhatsApp/ https://web.whatsapp.com 1> /dev/null 2> /dev/null &'
 
 # exclude grepping through .git folders.
 alias grep='grep --exclude-dir=\.git'
