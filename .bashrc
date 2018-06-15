@@ -112,8 +112,6 @@ if ! shopt -oq posix; then
 fi
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/ndk-bundle
 export PATH="$PATH:$GOPATH/bin"
-#export PATH=/home/akhil/anaconda2/bin:$PATH
-#export PATH="$HOME/.linuxbrew/bin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
