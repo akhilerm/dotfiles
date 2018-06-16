@@ -5,7 +5,7 @@ alias update='sudo apt-get update -y && sudo apt-get upgrade -y'
 alias wa-uae='google-chrome --user-data-dir=/home/akhil/.config/google-chrome/CustomUser/UAEWhatsApp/ https://web.whatsapp.com 1> /dev/null 2> /dev/null &'
 alias checkip='curl checkip.amazonaws.com'
 # exclude grepping through .git folders.
-alias grep='grep --exclude-dir=\.git'
+alias grep='grep --exclude-dir=\.git --color=auto'
 
 #Python virtualenv 
 #Usage : venv <env-name>
