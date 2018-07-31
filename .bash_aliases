@@ -72,3 +72,10 @@ aoeu() {
 	setxkbmap us
 	kill -9 $(ps -ax | grep xdq | awk '{print $1}')
 }
+
+#multiple cd ..
+up(){
+	for i in `seq $1`; do
+		cd ..
+	done
+}
