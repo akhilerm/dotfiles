@@ -75,7 +75,7 @@ aoeu() {
 
 #multiple cd ..
 up(){
-	for i in `seq $1`; do
+	for i in $(seq $1); do
 		cd ..
 	done
 }
