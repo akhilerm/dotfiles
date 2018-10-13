@@ -6,7 +6,7 @@ alias wa-uae='google-chrome --user-data-dir=/home/akhil/.config/google-chrome/Cu
 alias checkip='curl checkip.amazonaws.com'
 alias scrcpy='scrcpy &> /dev/null &'
 # exclude grepping through .git folders.
-alias grep='grep --exclude-dir=\.git --color=auto'
+alias grep='grep -i --exclude-dir=\.git --color=auto'
 
 #Python virtualenv 
 #Usage : venv <env-name>
