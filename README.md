@@ -1,4 +1,4 @@
 # BashConfig
-My Bash Configuration
+My dot files
 
-Optimized for Debian Stretch
+Ubuntu 18.04
