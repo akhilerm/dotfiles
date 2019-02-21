@@ -120,4 +120,5 @@ export PATH=$PATH:/usr/local/go/bin
 export GOPATH=${HOME}/Work/Golang
 export PATH=$PATH:${GOPATH}/bin
 export PATH=$PATH:${HOME}/bin
+export CSCOPE_DB=${HOME}/cscope.out
 source <(kubectl completion bash)
