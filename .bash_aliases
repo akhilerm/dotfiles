@@ -41,10 +41,17 @@ extract() {
 
 #cd multiple dricetories
 up() {
+	DIR_PATH=""
+
+	if [ -z $1 ] ; then
+		return
+	fi
+
 	for i in $(seq "$1")
 	do
-		cd ..
+		DIR_PATH="$DIR_PATH../"
 	done
+	cd $DIR_PATH
 }
 
 gi() { 
