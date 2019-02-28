@@ -1,13 +1,11 @@
 alias update='sudo apt-get update -y && sudo apt-get upgrade -y'
 alias checkip='curl checkip.amazonaws.com'
-
-#exclude grepping through .git folders
-alias grep='grep --exclude-dir=\.git --color=auto'
-
-#make grep case insensitive by default
-alias grep='grep -i'
-
 alias ..='cd ..'
+
+#exclude grepping through .git folders and make case insensitive
+alias grep='grep -i --exclude-dir=\.git --color=auto'
+
+alias hs='history | grep'
 
 #generate output in human readable form
 alias du='du -h'
