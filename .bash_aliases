@@ -19,6 +19,11 @@ gdiff() {
 	goland diff $1 $2
 }
 
+#make directory and go into it
+mkcd() { 
+	mkdir -p $1; cd $1 
+}
+
 #Extract archives
 extract() {
 	if [ -f $1 ] ; then
