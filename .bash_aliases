@@ -2,10 +2,11 @@ alias update='sudo apt-get update -y && sudo apt-get upgrade -y'
 alias checkip='curl checkip.amazonaws.com'
 alias ..='cd ..'
 
+#jump to OpenEBS directory
+alias oebs='cd "$GOPATH"/src/github.com/openebs'
+
 #exclude grepping through .git folders and make case insensitive
 alias grep='grep -i --exclude-dir=\.git --color=auto'
-
-alias hs='history | grep'
 
 #generate output in human readable form
 alias du='du -h'
@@ -20,6 +21,24 @@ gdiff() {
 #make directory and go into it
 mkcd() { 
 	mkdir -p $1; cd $1 
+}
+
+#search through history
+hs() { 
+	command="history"
+	for arg in "$@"
+	do
+		command="$command | grep $arg"
+	done
+	eval $command
+}
+
+#mv with parent
+pmv() {
+    src=$1
+    dst=$2
+    mkdir -p "$dst"/"$(dirname $src)"
+    mv "$src" "$dst"/"$(dirname $src)"/
 }
 
 #Extract archives
