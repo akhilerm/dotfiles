@@ -116,6 +116,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# exporting secrets from .env
+source $HOME/.env
+
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=${HOME}/Work/Golang
 export PATH=$PATH:${GOPATH}/bin
