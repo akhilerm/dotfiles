@@ -125,3 +125,4 @@ export PATH=$PATH:${GOPATH}/bin
 export PATH=$PATH:${HOME}/bin
 export CSCOPE_DB=${HOME}/cscope.out
 source <(kubectl completion bash)
+export PATH="$HOME/.cargo/bin:$PATH"
