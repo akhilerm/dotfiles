@@ -126,3 +126,6 @@ export PATH=$PATH:${HOME}/bin
 export CSCOPE_DB=${HOME}/cscope.out
 source <(kubectl completion bash)
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# bash completion for virtual box
+source $HOME/Work/Bash/vboxmanage-bash-completion/VBoxManage
