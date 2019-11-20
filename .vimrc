@@ -1,5 +1,6 @@
 set nu
-syntax on
+set syntax=on
+set clipboard=unnamed
 set autoindent
 set ignorecase
 set smartcase
