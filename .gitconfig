@@ -1,0 +1,9 @@
+[user]
+	name = Akhil Mohan
+	email = makhil@vmware.com
+[core]
+	editor = vi
+[init]
+	defaultBranch = main
+[alias]
+	ci = commit -S -s

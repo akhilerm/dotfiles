@@ -1,4 +1,4 @@
 # BashConfig
 My dot files
 
-Ubuntu 18.04
+Ubuntu 22.04
