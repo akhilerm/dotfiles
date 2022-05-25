@@ -124,12 +124,13 @@ fi
 source $HOME/.env
 
 export PATH=$PATH:/usr/local/go/bin
-export GOPATH=${HOME}/Work/Golang
+export GOPATH=${HOME}/go
 export PATH=$PATH:${GOPATH}/bin
 export PATH=$PATH:${HOME}/bin
+export PATH=$PATH:{HOME}/.local/bin
 export CSCOPE_DB=${HOME}/cscope.out
-source <(kubectl completion bash)
+#source <(kubectl completion bash)
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # bash completion for virtual box
-source $HOME/Work/Bash/vboxmanage-bash-completion/VBoxManage
+#source $HOME/Work/Bash/vboxmanage-bash-completion/VBoxManage
