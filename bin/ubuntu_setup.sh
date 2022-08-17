@@ -29,6 +29,7 @@ git clone https://github.com/akhilerm/configs.git
 cd ~
 ln -s Work/configs/.bashrc .bashrc
 ln -s Work/configs/.bash_aliases .bash_aliases
+ln -s Work/configs/.gitconfig .gitconfig
 
 #install golang
 wget https://go.dev/dl/${GO_VERSION}.linux-amd64.tar.gz

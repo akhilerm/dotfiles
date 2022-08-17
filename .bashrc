@@ -118,6 +118,9 @@ if ! shopt -oq posix; then
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
+  for file in /etc/bash_completion.d/* ; do
+    source "$file"
+  done
 fi
 
 # exporting secrets from .env

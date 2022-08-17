@@ -7,3 +7,5 @@
 	defaultBranch = main
 [alias]
 	ci = commit -S -s
+[commit]
+	gpgsign = true
