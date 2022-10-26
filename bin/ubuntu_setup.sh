@@ -13,7 +13,7 @@ fi
 sudo apt-get update -y && sudo apt-get upgrade -y
 
 # install git and build essential for initial setup and basic utilties
-sudo apt-get install git build-essential vim unzip jq
+sudo apt-get install git build-essential vim unzip jq curl
 
 # setup initial directories
 mkdir bin
