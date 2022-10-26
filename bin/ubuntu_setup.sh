@@ -9,7 +9,7 @@ if [ -z GO_VERSION ]; then
 fi
 
 if [ -z PROTOC_VERSION ]; then
-	echo "get the latest protobuf version from https://github.com/protocolbuffers/protobuf/releases/latesti as PROTOC_VERSION=3.20.0"
+	echo "get the latest protobuf version from https://github.com/protocolbuffers/protobuf/releases/latest as PROTOC_VERSION=20.0"
 fi
 
 # update and upgrade all the packages
@@ -34,13 +34,13 @@ git clone https://github.com/akhilerm/configs.git
 
 cd ~
 rm .bashrc
-ln -s Work/configs/.bashrc .bashrc
+ln -s ~/Work/configs/.bashrc .bashrc
 
 rm .bash_aliases
-ln -s Work/configs/.bash_aliases .bash_aliases
+ln -s ~/Work/configs/.bash_aliases .bash_aliases
 
 rm .gitconfig
-ln -s Work/configs/.gitconfig .gitconfig
+ln -s ~/Work/configs/.gitconfig .gitconfig
 
 #install golang
 wget https://go.dev/dl/${GO_VERSION}.linux-amd64.tar.gz
