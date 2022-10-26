@@ -7,6 +7,7 @@ fi
 
 if [ -z PROTOC_VERSION ]; then
 	echo "get the latest protobuf version from https://github.com/protocolbuffers/protobuf/releases/latesti as PROTOC_VERSION=3.20.0"
+fi
 
 # update and upgrade all the packages
 sudo apt-get install update -y && sudo apt-get upgrade -y
