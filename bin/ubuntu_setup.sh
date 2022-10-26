@@ -1,6 +1,9 @@
 #! /bin/bash
 
 
+# script should be run as non sudo. FOr commands requiring sudo the permission will 
+# be asked inbetween
+
 if [ -z GO_VERSION ]; then
 	echo "get the latest version of golang from https://go.dev/dl/ as GO_VERSION=go1.18.2"
 fi
