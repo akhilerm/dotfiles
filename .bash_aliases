@@ -9,6 +9,9 @@ alias ndm='cd "$GOPATH"/src/github.com/openebs/node-disk-manager'
 #jumpt to containerd directory
 alias ctrd='cd "${GOPATH}"/src/github.com/containerd'
 
+#jump to kubernetes directory
+alias kkd='cd "${GOPATH}"/src/github.com/kubernetes/kubernetes'
+
 #exclude grepping through .git folders and make case insensitive
 alias grep='grep -i --exclude-dir=\.git --color=auto'
 
