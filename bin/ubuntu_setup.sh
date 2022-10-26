@@ -19,6 +19,8 @@ sudo apt-get install git build-essential vim unzip jq curl
 mkdir bin
 mkdir Work
 mkdir go
+# setup symlink for gopath
+ln -s ~/go ~/Work/go
 
 # setup file for secrets via env
 touch .env
@@ -28,8 +30,13 @@ cd Work
 git clone https://github.com/akhilerm/configs.git
 
 cd ~
+rm .bashrc
 ln -s Work/configs/.bashrc .bashrc
+
+rm .bash_aliases
 ln -s Work/configs/.bash_aliases .bash_aliases
+
+rm .gitconfig
 ln -s Work/configs/.gitconfig .gitconfig
 
 #install golang
