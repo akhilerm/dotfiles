@@ -34,6 +34,8 @@ ln -s Work/configs/.gitconfig .gitconfig
 #install golang
 wget https://go.dev/dl/${GO_VERSION}.linux-amd64.tar.gz
 rm -rf /usr/local/go && sudo tar -C /usr/local -xzf ${GO_VERSION}.linux-amd64.tar.gz
+sudo mv /usr/local/go /usr/local/${GO_VERSION}
+sudo ln -s /usr/local/${GO_VERSION} /usr/local/go
 
 #install protobuf
 PB_REL="https://github.com/protocolbuffers/protobuf/releases"
