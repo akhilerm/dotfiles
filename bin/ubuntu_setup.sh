@@ -71,3 +71,7 @@ source ~/.bashrc
 #remove the downloded archives
 rm ${GO_VERSION}.linux-amd64.tar.gz
 rm protoc-${PROTOC_VERSION}-linux-x86_64.zip
+
+# Further instructions
+echo "Generate GPG key, add it to github, add it to git config, add it to keychain"
+echo "Generate SSH key, add it to github"
