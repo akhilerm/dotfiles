@@ -41,7 +41,11 @@ rm .bash_aliases
 ln -s ~/Work/configs/.bash_aliases .bash_aliases
 
 rm .gitconfig
-ln -s ~/Work/configs/.gitconfig .gitconfig
+# gitconfig is copied since it can contain signing keys
+cp Work/configs/gitconfig .gitconfig
+
+#setup vim
+ln -s Work/configs/vimrc .vimrc
 
 # copy the scripts and binaries
 for script_file in ~/Work/configs/bin/*; do
@@ -75,3 +79,4 @@ rm protoc-${PROTOC_VERSION}-linux-x86_64.zip
 # Further instructions
 echo "Generate GPG key, add it to github, add it to git config, add it to keychain"
 echo "Generate SSH key, add it to github"
+echo "Install kubectl"

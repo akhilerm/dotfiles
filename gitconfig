@@ -9,5 +9,3 @@
 	ci = commit -S -s
 [commit]
 	gpgsign = true
-[gpg]
-	program = gpg2
