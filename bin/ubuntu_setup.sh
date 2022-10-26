@@ -32,6 +32,7 @@ cd Work
 # initial cloning will be from https based since ssh keys are not yet present
 git clone https://github.com/akhilerm/configs.git
 
+# setup bash 
 cd ~
 rm .bashrc
 ln -s ~/Work/configs/.bashrc .bashrc
@@ -41,6 +42,16 @@ ln -s ~/Work/configs/.bash_aliases .bash_aliases
 
 rm .gitconfig
 ln -s ~/Work/configs/.gitconfig .gitconfig
+
+# copy the scripts and binaries
+for script_file in ~/Work/configs/bin/*; do
+        # symlink all scripts except ubuntu setup
+        script_file="${script_file##*/}"
+        if [ "$script_file" = "ubuntu_setup.sh" ]; then
+                continue
+        fi
+        ln -s ~/Work/configs/bin/$script_file ~/bin/$script_file
+done
 
 #install golang
 wget https://go.dev/dl/${GO_VERSION}.linux-amd64.tar.gz

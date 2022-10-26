@@ -126,14 +126,18 @@ fi
 # exporting secrets from .env
 source $HOME/.env
 
+# setup golang related paths
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=${HOME}/go
 export PATH=$PATH:${GOPATH}/bin
 export PATH=$PATH:${HOME}/bin
 export PATH=$PATH:{HOME}/.local/bin
 export CSCOPE_DB=${HOME}/cscope.out
-#source <(kubectl completion bash)
+source <(kubectl completion bash)
+
+# setup rust related paths
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # bash completion for virtual box
 #source $HOME/Work/Bash/vboxmanage-bash-completion/VBoxManage
+export GPG_TTY=$(tty)
