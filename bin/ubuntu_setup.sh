@@ -10,7 +10,7 @@ if [ -z PROTOC_VERSION ]; then
 fi
 
 # update and upgrade all the packages
-sudo apt-get install update -y && sudo apt-get upgrade -y
+sudo apt-get update -y && sudo apt-get upgrade -y
 
 # install git and build essential for initial setup and basic utilties
 sudo apt-get install git build-essential vim unzip jq
