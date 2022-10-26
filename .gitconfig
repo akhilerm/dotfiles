@@ -1,6 +1,6 @@
 [user]
 	name = Akhil Mohan
-	email = makhil@vmware.com
+	email = akhilerm@gmail.com
 [core]
 	editor = vi
 [init]
@@ -9,3 +9,5 @@
 	ci = commit -S -s
 [commit]
 	gpgsign = true
+[gpg]
+	program = gpg2
