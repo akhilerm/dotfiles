@@ -56,14 +56,28 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-parse_git_branch() {
+_parse_git_branch() {
  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
+_dir_chomp () {
+    local p=${1/#$HOME/\~} b s
+    s=${#p}
+    while [[ $p != "${p//\/}" ]]&&(($s>$2))
+    do
+        p=${p#/}
+        [[ $p =~ \.?. ]]
+        b=$b/${BASH_REMATCH[0]}
+        p=${p#*/}
+        ((s=${#b}+${#p}))
+    done
+    echo ${b/\/~/\~}${b+/}$p
+}
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\] $(parse_git_branch)\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]$(_dir_chomp "$PWD" 1)\[\033[01;31m\] $(_parse_git_branch)\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:$(_dir_chomp "$PWD" 1)$(_parse_git_branch)\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -118,9 +132,11 @@ if ! shopt -oq posix; then
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
-  for file in /etc/bash_completion.d/* ; do
-    source "$file"
-  done
+# commented out because was showing error with 'have' command not found in 22.04
+# but the completion still works. dont know how
+#  for file in /etc/bash_completion.d/* ; do
+#    source "$file"
+#  done
 fi
 
 # exporting secrets from .env
