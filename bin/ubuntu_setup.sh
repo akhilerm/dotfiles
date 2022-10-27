@@ -16,7 +16,12 @@ fi
 sudo apt-get update -y && sudo apt-get upgrade -y
 
 # install git and build essential for initial setup and basic utilties
-sudo apt-get install git build-essential vim unzip jq curl
+sudo apt-get install git build-essential vim unzip jq curl \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release \
+    apt-transport-https
 
 # setup initial directories
 mkdir bin
@@ -76,7 +81,38 @@ source ~/.bashrc
 rm ${GO_VERSION}.linux-amd64.tar.gz
 rm protoc-${PROTOC_VERSION}-linux-x86_64.zip
 
+#setup golang directories
+mkdir ~/go/bin ~/go/pkg ~/go/src
+ln -s ~/go/src ~/Work/Golang
+
+#setup k8s directories
+mkdir -p ~/go/src/github.com/kubernetes
+mkdir -p ~/go/src/github.com/kubernetes-sigs
+ln -s ~/go/src/github.com/kubernetes ~/go/src/k8s.io
+ln -s ~/go/src/github.com/kubernetes-sigs ~/go/src/sigs.k8s.io
+
+mkdir ~/go/src/github.com/akhilerm
+
+#install docker
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update -y
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+
+#install kubectl
+sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubectl
+
 # Further instructions
 echo "Generate GPG key, add it to github, add it to git config, add it to keychain"
 echo "Generate SSH key, add it to github"
-echo "Install kubectl"
