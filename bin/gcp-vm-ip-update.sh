@@ -8,4 +8,5 @@ if [ -z "$IP" ];then
         exit 1
 fi
 # additional '' added after -i to make this work on Mac. On GNU sed, its not needed
-sed -i '' "s/.*gcp-dev-machine/${IP} gcp-dev-machine/" /etc/hosts
+#sed -i '' "s/.*gcp-dev-machine/${IP} gcp-dev-machine/" /etc/hosts
+sed -i "s/.*gcp-dev-machine/${IP} gcp-dev-machine/" /etc/hosts
