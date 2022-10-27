@@ -113,6 +113,12 @@ echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https:/
 sudo apt-get update
 sudo apt-get install -y kubectl
 
+#install gcloud cli
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+sudo apt-get update -y && sudo apt-get install -y google-cloud-cli
+
 # Further instructions
 echo "Generate GPG key, add it to github, add it to git config, add it to keychain"
 echo "Generate SSH key, add it to github"
+echo "gcloud init"
