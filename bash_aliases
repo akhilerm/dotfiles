@@ -20,6 +20,9 @@ alias du='du -h'
 alias df='df -h'
 alias free='free -h'
 
+# alias sudo with path so that $PATH is always available
+alias sudo='sudo -E env "PATH=$PATH"'
+
 #use GUI diff tool which comes along with goland
 gdiff() {
 	goland diff $1 $2
