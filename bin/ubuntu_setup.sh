@@ -59,7 +59,8 @@ for script_file in ~/Work/configs/bin/*; do
         if [ "$script_file" = "ubuntu_setup.sh" ]; then
                 continue
         fi
-        ln -s ~/Work/configs/bin/$script_file ~/bin/$script_file
+	# remove the .sh extension while creating symlink
+        ln -s ~/Work/configs/bin/$script_file ~/bin/$(basename $script_file .sh)
 done
 
 #install golang
@@ -117,6 +118,13 @@ sudo apt-get install -y kubectl
 echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
 sudo apt-get update -y && sudo apt-get install -y google-cloud-cli
+
+# install trivy
+sudo apt-get install wget apt-transport-https gnupg lsb-release
+wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
+echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
+sudo apt-get update -y
+sudo apt-get install -y trivy
 
 # Further instructions
 echo "Generate GPG key, add it to github, add it to git config, add it to keychain"
