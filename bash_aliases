@@ -10,7 +10,7 @@ alias ndm='cd "$GOPATH"/src/github.com/openebs/node-disk-manager'
 alias ctrd='cd "${GOPATH}"/src/github.com/containerd'
 
 #jump to kubernetes directory
-alias kkd='cd "${GOPATH}"/src/github.com/kubernetes/kubernetes'
+alias kdir='cd "${GOPATH}"/src/github.com/kubernetes'
 
 #exclude grepping through .git folders and make case insensitive
 alias grep='grep -i --exclude-dir=\.git --color=auto'
@@ -21,7 +21,7 @@ alias df='df -h'
 alias free='free -h'
 
 # alias sudo with path so that $PATH is always available
-alias sudo='sudo -E env "PATH=$PATH"'
+alias mysudo='sudo -E env "PATH=$PATH"'
 
 #use GUI diff tool which comes along with goland
 gdiff() {

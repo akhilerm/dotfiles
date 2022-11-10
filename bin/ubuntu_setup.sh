@@ -21,7 +21,8 @@ sudo apt-get install git build-essential vim unzip jq curl \
     curl \
     gnupg \
     lsb-release \
-    apt-transport-https
+    apt-transport-https \
+    wget
 
 # setup initial directories
 mkdir bin
@@ -125,6 +126,19 @@ wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-k
 echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
 sudo apt-get update -y
 sudo apt-get install -y trivy
+
+# install speedtest
+sudo apt-get install speedtest-cli
+
+# install github cli
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+&& sudo apt update \
+&& sudo apt install gh -y
+
+# install dev libraries
+sudo apt-get install libbtrfs-dev
 
 # Further instructions
 echo "Generate GPG key, add it to github, add it to git config, add it to keychain"
