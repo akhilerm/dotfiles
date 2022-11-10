@@ -1,15 +1,18 @@
 #! /bin/bash
 
+set -e
 
 # script should be run as non sudo. FOr commands requiring sudo the permission will 
 # be asked inbetween
 
 if [ -z GO_VERSION ]; then
 	echo "get the latest version of golang from https://go.dev/dl/ as GO_VERSION=go1.18.2"
+	exit 1
 fi
 
 if [ -z PROTOC_VERSION ]; then
 	echo "get the latest protobuf version from https://github.com/protocolbuffers/protobuf/releases/latest as PROTOC_VERSION=20.0"
+	exit 1
 fi
 
 # update and upgrade all the packages
@@ -28,8 +31,6 @@ sudo apt-get install git build-essential vim unzip jq curl \
 mkdir bin
 mkdir Work
 mkdir go
-# setup symlink for gopath
-ln -s ~/go ~/Work/go
 
 # setup file for secrets via env
 touch .env
@@ -40,17 +41,18 @@ git clone https://github.com/akhilerm/configs.git
 
 # setup bash 
 cd ~
-rm .bashrc
-ln -s ~/Work/configs/.bashrc .bashrc
+rm .bashrc || true
+ln -s ~/Work/configs/bashrc .bashrc
 
-rm .bash_aliases
-ln -s ~/Work/configs/.bash_aliases .bash_aliases
+rm .bash_aliases || true
+ln -s ~/Work/configs/bash_aliases .bash_aliases
 
-rm .gitconfig
+rm .gitconfig || true
 # gitconfig is copied since it can contain signing keys
 cp Work/configs/gitconfig .gitconfig
 
 #setup vim
+rm .vimrc || tru
 ln -s Work/configs/vimrc .vimrc
 
 # copy the scripts and binaries
@@ -73,7 +75,8 @@ sudo ln -s /usr/local/${GO_VERSION} /usr/local/go
 #install protobuf
 PB_REL="https://github.com/protocolbuffers/protobuf/releases"
 curl -LO $PB_REL/download/v${PROTOC_VERSION}/protoc-${PROTOC_VERSION}-linux-x86_64.zip
-unzip protoc-${PROTOC_VERSION}-linux-x86_64.zip -d $HOME/.local
+sudo unzip -o  protoc-${PROTOC_VERSION}-linux-x86_64.zip -d "/usr/local" /bin/protoc
+sudo unzip -o  protoc-${PROTOC_VERSION}-linux-x86_64.zip -d "/usr/local" 'include/*'
 
 
 # source the rc files
@@ -138,7 +141,16 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 && sudo apt install gh -y
 
 # install dev libraries
-sudo apt-get install libbtrfs-dev
+sudo apt-get install -y libbtrfs-dev libfuse2
+
+#install sublime
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+sudo apt-get update
+sudo apt-get install -y sublime-text
+
+#install openssh server
+sudo apt-get install -y openssh-server
 
 # Further instructions
 echo "Generate GPG key, add it to github, add it to git config, add it to keychain"
