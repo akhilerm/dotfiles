@@ -14,8 +14,8 @@ if ! [ -z "$2" ] && [ "$2" = "prod" ]; then
 fi
 
 for binary in $(find "${DEV_BINARY_PATH}" -type f -executable -printf "%f\n");do
-	# remove existing devlinks before creating new, prod links has to be
-	# removed manually
-	rm ~/bin/$binary-dev 
-	ln -s "$PWD/$DEV_BINARY_PATH/$binary" ~/bin/$binary${DEV_SUFFIX}
+	# remove existing devlinks before creating new
+	BINARY_NAME=$binary${DEV_SUFFIX}
+	rm ~/bin/$BINARY_NAME || true
+	ln -s "$PWD/$DEV_BINARY_PATH/$binary" ~/bin/$BINARY_NAME
 done
