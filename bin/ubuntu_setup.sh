@@ -141,7 +141,7 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 && sudo apt install gh -y
 
 # install dev libraries
-sudo apt-get install -y libbtrfs-dev libfuse2
+sudo apt-get install -y libbtrfs-dev libfuse2 libudev-dev libblkid-dev
 
 #install sublime
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
