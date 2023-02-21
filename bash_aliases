@@ -12,6 +12,9 @@ alias ctrd='cd "${GOPATH}"/src/github.com/containerd'
 #jump to kubernetes directory
 alias kdir='cd "${GOPATH}"/src/github.com/kubernetes'
 
+#jump to opencontainers directory
+alias ocid='cd "${GOPATH}"/src/github.com/opencontainers'
+
 #exclude grepping through .git folders and make case insensitive
 alias grep='grep -i --exclude-dir=\.git --color=auto'
 
