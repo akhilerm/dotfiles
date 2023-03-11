@@ -52,7 +52,7 @@ rm .gitconfig || true
 cp Work/configs/gitconfig .gitconfig
 
 #setup vim
-rm .vimrc || tru
+rm .vimrc || true
 ln -s Work/configs/vimrc .vimrc
 
 # copy the scripts and binaries
@@ -75,7 +75,7 @@ sudo ln -s /usr/local/${GO_VERSION} /usr/local/go
 #install protobuf
 PB_REL="https://github.com/protocolbuffers/protobuf/releases"
 curl -LO $PB_REL/download/v${PROTOC_VERSION}/protoc-${PROTOC_VERSION}-linux-x86_64.zip
-sudo unzip -o  protoc-${PROTOC_VERSION}-linux-x86_64.zip -d "/usr/local" /bin/protoc
+sudo unzip -o  protoc-${PROTOC_VERSION}-linux-x86_64.zip -d "/usr/local" bin/protoc
 sudo unzip -o  protoc-${PROTOC_VERSION}-linux-x86_64.zip -d "/usr/local" 'include/*'
 
 
