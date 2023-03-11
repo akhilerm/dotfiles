@@ -153,7 +153,9 @@ source <(kubectl completion bash)
 
 # setup rust related paths
 export PATH="$HOME/.cargo/bin:$PATH"
+. "$HOME/.cargo/env"
 
 # bash completion for virtual box
 #source $HOME/Work/Bash/vboxmanage-bash-completion/VBoxManage
+
 export GPG_TTY=$(tty)
