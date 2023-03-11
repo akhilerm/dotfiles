@@ -1,5 +1,6 @@
 alias update='sudo apt-get update -y && sudo apt-get upgrade -y'
 alias checkip='curl checkip.amazonaws.com'
+alias checkip6='curl -6 icanhazip.com'
 alias ..='cd ..'
 
 #jump to OpenEBS directory
