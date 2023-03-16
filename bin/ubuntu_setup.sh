@@ -155,6 +155,9 @@ sudo apt-get install -y openssh-server
 # install tmux
 sudo apt-get install -y tmux
 
+# install yq
+sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq && sudo chmod +x /usr/bin/yq
+
 # Further instructions
 echo "Generate GPG key, add it to github, add it to git config, add it to keychain"
 echo "Generate SSH key, add it to github"
