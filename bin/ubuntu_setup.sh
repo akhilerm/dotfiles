@@ -152,6 +152,9 @@ sudo apt-get install -y sublime-text
 #install openssh server
 sudo apt-get install -y openssh-server
 
+# install tmux
+sudo apt-get install -y tmux
+
 # Further instructions
 echo "Generate GPG key, add it to github, add it to git config, add it to keychain"
 echo "Generate SSH key, add it to github"
