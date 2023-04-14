@@ -5,8 +5,16 @@
 # Usage
 # switch-go.sh go1.18.3
 
-GO_VERSION=$1
+
 CURRENT_VERSION=$(basename $(readlink -f /usr/local/go))
+if [ -z $1 ]; then
+	echo "> $CURRENT_VERSION"
+	ls /usr/local/ | grep go | grep -vE "^go$|$CURRENT_VERSION" | awk '{print "  "$1}'
+	exit 0
+fi
+
+
+GO_VERSION=$1
 if [ -d "/usr/local/$GO_VERSION" ]; then
 	sudo rm /usr/local/go
 	sudo ln -s /usr/local/$GO_VERSION /usr/local/go
