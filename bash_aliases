@@ -27,6 +27,10 @@ alias free='free -h'
 # alias sudo with path so that $PATH is always available
 alias mysudo='sudo -E env "PATH=$PATH"'
 
+# kubectl alias
+alias k='kubectl'
+alias kn='kubectl -n "$KUBERNETES_NS"'
+
 #use GUI diff tool which comes along with goland
 gdiff() {
 	goland diff $1 $2
