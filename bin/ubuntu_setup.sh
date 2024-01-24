@@ -16,20 +16,24 @@ pushd Work
 # initial cloning will be from https based since ssh keys are not yet present
 git clone https://github.com/akhilerm/configs.git
 cd configs
-git remote --set-url origin git@github.com:akhilerm/configs.git
+git remote set-url origin git@github.com:akhilerm/configs.git
 
 ## script to install default packages
 DEFAULT_PACKAGES_FILE="./packages/default_packages"
-DEFAULT_PACKAGES=""
+DEFAULT_PACKAGES=()
+# remove too much verbosity
+set +x
 while IFS= read -r package; do
   # Skip empty lines or lines starting with #
   if [[ -z "$package" || "$package" == "#"* ]]; then
     continue
   fi
-  DEFAULT_PACKAGES="${DEFAULT_PACKAGES} $package"
-done < "${DEFAULT_PACKAGES_FILE}"
+  DEFAULT_PACKAGES+=($package)
 
-sudo apt-get install -y "${DEFAULT_PACKAGES}"
+done < "${DEFAULT_PACKAGES_FILE}"
+set -x
+
+sudo apt-get install -y "${DEFAULT_PACKAGES[@]}"
 
 ## script to install other packages/binaries
 PACKAGE_DIRECTORY="./packages"
