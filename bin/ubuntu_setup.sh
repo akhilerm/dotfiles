@@ -83,7 +83,6 @@ done
 # source the rc files
 source ~/.bashrc
 
-
 #setup golang directories
 mkdir go
 mkdir ~/go/bin ~/go/pkg ~/go/src
@@ -95,6 +94,8 @@ mkdir -p ~/go/src/github.com/kubernetes-sigs
 ln -s ~/go/src/github.com/kubernetes ~/go/src/k8s.io
 ln -s ~/go/src/github.com/kubernetes-sigs ~/go/src/sigs.k8s.io
 
+#setup additional directories
+mkdir ~/Work/dev-config.d
 mkdir ~/go/src/github.com/akhilerm
 
 # Further instructions
