@@ -155,12 +155,15 @@ source <(kubectl completion bash)
 export PATH="$HOME/.cargo/bin:$PATH"
 . "$HOME/.cargo/env"
 
+# add local bin
+export PATH="$HOME/.local/bin:$PATH"
+
 # bash completion for virtual box
 #source $HOME/Work/Bash/vboxmanage-bash-completion/VBoxManage
 
 export GPG_TTY=$(tty)
 
-# this is used to use gpg auth key for ssh access. 
+# this is used to use gpg auth key for ssh access.
 unset SSH_AGENT_PID
 if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
   export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
