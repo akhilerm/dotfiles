@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#install protobuf
+if [ -z "${PROTOC_VERSION}" ]; then
+  PROTOC_VERSION=$(curl https://api.github.com/repos/protocolbuffers/protobuf/releases/latest -s | jq .tag_name -r)
+  PROTOC_VERSION=${PROTOC_VERSION#v}
+fi
+
+PB_REL="https://github.com/protocolbuffers/protobuf/releases"
+curl -LO $PB_REL/download/v${PROTOC_VERSION}/protoc-${PROTOC_VERSION}-linux-x86_64.zip
+sudo unzip -o  protoc-${PROTOC_VERSION}-linux-x86_64.zip -d "/usr/local" bin/protoc
+sudo unzip -o  protoc-${PROTOC_VERSION}-linux-x86_64.zip -d "/usr/local" 'include/*'
+
+rm "protoc-${PROTOC_VERSION}-linux-x86_64.zip"

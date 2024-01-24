@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# get golang version
+if [ -z "${GO_VERSION}" ]; then
+	# get the latest go version
+  GO_VERSION=$(curl https://go.dev/dl/?mode=json | \
+   grep -o 'go.*.linux-amd64.tar.gz' | \
+   head -n 1 | \
+   tr -d '\r\n')
+  GO_VERSION=${GO_VERSION%.linux-amd64.tar.gz}
+fi
+
+wget https://go.dev/dl/${GO_VERSION}.linux-amd64.tar.gz
+rm -rf /usr/local/go && sudo tar -C /usr/local -xzf ${GO_VERSION}.linux-amd64.tar.gz
+sudo mv /usr/local/go /usr/local/${GO_VERSION}
+sudo ln -s /usr/local/${GO_VERSION} /usr/local/go
+
+rm "${GO_VERSION}.linux-amd64.tar.gz"

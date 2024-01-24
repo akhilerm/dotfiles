@@ -1,0 +1,19 @@
+# in alphabetic order to make easy to find duplicates
+apt-transport-https
+build-essential
+ca-certificates
+curl
+git
+gnupg
+jq
+libblkid-dev
+libbtrfs-dev
+libfuse2
+libudev-dev
+lsb-release
+openssh-server
+speedtest-cli
+tmux
+unzip
+vim
+wget

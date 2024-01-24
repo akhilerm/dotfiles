@@ -1,6 +1,7 @@
 [user]
 	name = Akhil Mohan
 	email = akhilerm@gmail.com
+	signingkey = CB72A322B3B5DEDA
 [core]
 	editor = vi
 [init]
