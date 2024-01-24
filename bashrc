@@ -159,3 +159,10 @@ export PATH="$HOME/.cargo/bin:$PATH"
 #source $HOME/Work/Bash/vboxmanage-bash-completion/VBoxManage
 
 export GPG_TTY=$(tty)
+
+# this is used to use gpg auth key for ssh access. 
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+fi
+gpg-connect-agent updatestartuptty /bye >/dev/null
