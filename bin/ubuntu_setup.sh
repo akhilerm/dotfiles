@@ -14,9 +14,9 @@ mkdir Work
 
 pushd Work
 # initial cloning will be from https based since ssh keys are not yet present
-git clone https://github.com/akhilerm/configs.git
+git clone https://github.com/akhilerm/dotfiles.git
 cd configs
-git remote set-url origin git@github.com:akhilerm/configs.git
+git remote set-url origin git@github.com:akhilerm/dotfiles.git
 
 ## script to install default packages
 DEFAULT_PACKAGES_FILE="./packages/default_packages"
