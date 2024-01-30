@@ -68,6 +68,7 @@ ln -s ~/Work/configs/env .env
 #setup vim
 rm .vimrc || true
 ln -s Work/configs/vimrc .vimrc
+sudo update-alternatives --set editor /usr/bin/vim.basic
 
 #setup gpg config
 mkdir .gnupg || true
