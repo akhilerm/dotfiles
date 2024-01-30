@@ -14,6 +14,7 @@ lsb-release
 openssh-server
 speedtest-cli
 tmux
+tree
 unzip
 vim
 wget
