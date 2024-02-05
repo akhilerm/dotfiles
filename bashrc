@@ -146,10 +146,18 @@ source $HOME/.env
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=${HOME}/go
 export PATH=$PATH:${GOPATH}/bin
-export PATH=$PATH:${HOME}/bin
-export PATH=$PATH:{HOME}/.local/bin
+
 export CSCOPE_DB=${HOME}/cscope.out
-source <(kubectl completion bash)
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
 
 # setup rust related paths
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -160,6 +168,8 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # bash completion for virtual box
 #source $HOME/Work/Bash/vboxmanage-bash-completion/VBoxManage
+# bash completion for kubectl
+source <(kubectl completion bash)
 
 export GPG_TTY=$(tty)
 
