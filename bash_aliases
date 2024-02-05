@@ -31,6 +31,9 @@ alias mysudo='sudo -E env "PATH=$PATH"'
 alias k='kubectl'
 alias kn='kubectl -n "$KUBERNETES_NS"'
 
+# cat alias
+alias cat='batcat'
+
 #use GUI diff tool which comes along with goland
 gdiff() {
 	goland diff $1 $2

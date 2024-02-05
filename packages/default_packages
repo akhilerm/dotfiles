@@ -1,5 +1,6 @@
 # in alphabetic order to make easy to find duplicates
 apt-transport-https
+bat
 build-essential
 ca-certificates
 curl
