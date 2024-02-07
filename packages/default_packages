@@ -6,6 +6,7 @@ ca-certificates
 curl
 git
 gnupg
+gron
 jq
 libblkid-dev
 libbtrfs-dev
