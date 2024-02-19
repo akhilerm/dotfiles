@@ -163,9 +163,6 @@ fi
 export PATH="$HOME/.cargo/bin:$PATH"
 . "$HOME/.cargo/env"
 
-# add local bin
-export PATH="$HOME/.local/bin:$PATH"
-
 # bash completion for virtual box
 #source $HOME/Work/Bash/vboxmanage-bash-completion/VBoxManage
 # bash completion for kubectl
