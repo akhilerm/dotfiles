@@ -44,6 +44,11 @@ mkcd() {
 	mkdir -p $1; cd $1 
 }
 
+#make temp directory and cd into it
+mktcd() {
+        name=$(mktemp -d); cd $name
+}
+
 #search through history
 hs() { 
 	command="history"
