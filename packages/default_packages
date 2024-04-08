@@ -16,6 +16,7 @@ lsb-release
 openssh-server
 pkg-config
 speedtest-cli
+tig
 tmux
 tree
 unzip
