@@ -34,6 +34,9 @@ alias kn='kubectl -n "$KUBERNETES_NS"'
 # cat alias
 alias cat='batcat'
 
+# use lima + nerdctl
+alias dockerl='lima nerdctl'
+
 #use GUI diff tool which comes along with goland
 gdiff() {
 	goland diff $1 $2
