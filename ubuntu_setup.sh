@@ -19,7 +19,7 @@ cd configs
 git remote set-url origin git@github.com:akhilerm/dotfiles.git
 
 ## script to install default packages
-DEFAULT_PACKAGES_FILE="./packages/default_packages"
+DEFAULT_PACKAGES_FILE="./packages/apt/default_packages"
 DEFAULT_PACKAGES=()
 # remove too much verbosity
 set +x
@@ -35,8 +35,16 @@ set -x
 
 sudo apt-get install -y "${DEFAULT_PACKAGES[@]}"
 
-## script to install other packages/binaries
+# script to install packages from common scripts
 PACKAGE_DIRECTORY="./packages"
+pushd "${PACKAGE_DIRECTORY}"
+find * -maxdepth 0 -type f | while IFS= read -r file; do
+  "./$file"
+done
+popd
+
+## script to install other packages/binaries
+PACKAGE_DIRECTORY="./packages/apt"
 pushd "${PACKAGE_DIRECTORY}"
 for file in *; do
   if [ "$file" == "default_packages" ]; then
@@ -76,11 +84,8 @@ echo "enable-ssh-support" >> .gnupg/gpg-agent.conf
 
 # copy the scripts and binaries
 for script_file in ~/Work/configs/bin/*; do
-  # symlink all scripts except ubuntu setup
+  # symlink all scripts
   script_file="${script_file##*/}"
-  if [ "$script_file" = "ubuntu_setup.sh" ]; then
-    continue
-  fi
 	# remove the .sh extension while creating symlink
   ln -s ~/Work/configs/bin/$script_file ~/bin/$(basename $script_file .sh)
 done
