@@ -58,6 +58,9 @@ sudo cp /etc/pam.d/sudo_local.template /etc/pam.d/sudo_local
 sudo sed -i -e 's/#auth/auth/g' /etc/pam.d/sudo_local
 
 pushd ~/Work/dotfiles
+# install brew packages
+brew bundle install --file ./packages/brew/Brewfile
+
 # script to install packages from common scripts
 PACKAGE_DIRECTORY="./packages"
 pushd "${PACKAGE_DIRECTORY}"
@@ -65,9 +68,6 @@ find * -maxdepth 0 -type f | while IFS= read -r file; do
   "./$file"
 done
 popd
-
-# install brew packages
-brew bundle install --file ./packages/brew/Brewfile
 popd
 
 # copy the scripts and binaries
