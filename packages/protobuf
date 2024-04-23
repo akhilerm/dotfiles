@@ -1,5 +1,17 @@
 #!/bin/bash
 
+os=$(uname -s)
+if [[ $os == "Darwin" ]]; then
+  os="osx"
+fi
+os=$(echo $os | awk '{print tolower($0)}')
+
+
+arch=$(uname -m)
+if [[ $arch == "arm64" ]]; then
+  arch="aarch_64"
+fi
+
 #install protobuf
 if [ -z "${PROTOC_VERSION}" ]; then
   PROTOC_VERSION=$(curl https://api.github.com/repos/protocolbuffers/protobuf/releases/latest -s | jq .tag_name -r)
@@ -7,8 +19,8 @@ if [ -z "${PROTOC_VERSION}" ]; then
 fi
 
 PB_REL="https://github.com/protocolbuffers/protobuf/releases"
-curl -LO $PB_REL/download/v${PROTOC_VERSION}/protoc-${PROTOC_VERSION}-linux-x86_64.zip
-sudo unzip -o  protoc-${PROTOC_VERSION}-linux-x86_64.zip -d "/usr/local" bin/protoc
-sudo unzip -o  protoc-${PROTOC_VERSION}-linux-x86_64.zip -d "/usr/local" 'include/*'
+curl -LO $PB_REL/download/v${PROTOC_VERSION}/protoc-${PROTOC_VERSION}-$os-$arch.zip
+sudo unzip -o  protoc-${PROTOC_VERSION}-$os-$arch.zip -d "/usr/local" bin/protoc
+sudo unzip -o  protoc-${PROTOC_VERSION}-$os-$arch.zip -d "/usr/local" 'include/*'
 
-rm "protoc-${PROTOC_VERSION}-linux-x86_64.zip"
+rm "protoc-${PROTOC_VERSION}-$os-$arch.zip"
