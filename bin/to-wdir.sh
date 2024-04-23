@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# apply the git work config to the given git directory or current if nothing specifiec
+# apply the git work config to the given git directory or current if nothing specified
 
 if [ "$#" -ne 0 ]; then
   DIR="${1}"
@@ -10,6 +10,6 @@ fi
 
 pushd "${DIR}"
 
-cat ~/.gitconfig-work >> .git/config
+git config --local include.path ~/.gitconfig-work
 
 popd
