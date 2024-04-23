@@ -1,9 +1,11 @@
 [user]
 	name = Akhil Mohan
+	useConfigOnly = true
 	email = akhilerm@gmail.com
 	signingkey = CB72A322B3B5DEDA
 [core]
 	editor = vi
+	pager = less -F -X
 [init]
 	defaultBranch = main
 [alias]
