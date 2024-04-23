@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# pre push to make sure that only branches with a certain prefix
+# can be pushed to the given remote
+
+# Define the prefix for the branch name
+branch_prefix="feature/"
+remote_to_check="origin"
+
+# Read the local and remote branch names
+local_branch=$(git rev-parse --abbrev-ref HEAD)
+remote="${1}"
+
+exec < /dev/tty
+
+# check if remote is remote_to_check, make sure branch name starts with branch_prefix
+if [[ $remote == "$remote_to_check" && ! $local_branch =~ ^$branch_prefix ]]; then
+	read -p "Do you want to really push a non $branch_prefix branch to $remote_to_check (y/N)?" yN
+	case $yN in
+		y) 
+			exit 0
+			;;
+		N) 
+			exit 1
+			;;
+		*) 
+			exit 1
+			;;
+	esac
+fi
+
