@@ -13,4 +13,4 @@
 [commit]
 	gpgsign = true
 #[includeIf "gitdir:~/Work/vmware/"]
-#    path = .gitconfig-work
+#    path = ~/.gitconfig-work
