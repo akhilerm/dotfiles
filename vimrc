@@ -1,5 +1,6 @@
 set nu
-set syntax=on
+syntax on
+set ruler
 set clipboard=unnamed
 set autoindent
 set ignorecase
