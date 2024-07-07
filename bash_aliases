@@ -3,11 +3,7 @@ alias checkip='curl checkip.amazonaws.com'
 alias checkip6='curl -6 icanhazip.com'
 alias ..='cd ..'
 
-#jump to OpenEBS directory
-alias oebs='cd "$GOPATH"/src/github.com/openebs'
-alias ndm='cd "$GOPATH"/src/github.com/openebs/node-disk-manager'
-
-#jumpt to containerd directory
+#jump to containerd directory
 alias ctrd='cd "${GOPATH}"/src/github.com/containerd'
 
 #jump to kubernetes directory
@@ -36,6 +32,19 @@ alias cat='batcat'
 
 # use lima + nerdctl
 alias dockerl='lima nerdctl'
+
+# git aliases
+alias ga='git add'
+alias gb='git branch'
+alias gbd='git branch -D'
+alias gc='git ci'
+alias gcb='git checkout -b'
+alias gco='git checkout'
+alias gd='git diff'
+alias gf='git fetch'
+alias gp='git push'
+alias gl='git log --stat'
+alias gst='git status --short'
 
 #use GUI diff tool which comes along with goland
 gdiff() {
