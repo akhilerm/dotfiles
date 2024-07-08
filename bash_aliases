@@ -50,10 +50,10 @@ alias gd='git diff'
 __git_complete gd _git_diff
 alias gf='git fetch'
 __git_complete gf _git_fetch
-alias gp='git push'
-__git_complete gp _git_push
 alias gl='git log --stat'
 __git_complete gl _git_log
+alias gp='git push'
+__git_complete gp _git_push
 alias gst='git status --short'
 __git_complete gst _git_status
 
