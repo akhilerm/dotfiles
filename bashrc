@@ -118,7 +118,10 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
+#
+# Since bash aliases  uses git completion methods, the bash completion
+# need to be added here
+source /usr/share/bash-completion/completions/git
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -134,9 +137,9 @@ if ! shopt -oq posix; then
   fi
 # commented out because was showing error with 'have' command not found in 22.04
 # but the completion still works. dont know how
-#  for file in /etc/bash_completion.d/* ; do
-#    source "$file"
-#  done
+  for file in /etc/bash_completion.d/* ; do
+    source "$file"
+  done
 fi
 
 # exporting secrets from .env
