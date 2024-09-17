@@ -7,6 +7,7 @@ set -euxo pipefail
 
 # update and upgrade all the default_packages
 sudo apt-get update -y && sudo apt-get upgrade -y
+sudo apt-get install git -y
 
 # setup initial directories
 mkdir bin
@@ -15,7 +16,7 @@ mkdir Work
 pushd Work
 # initial cloning will be from https based since ssh keys are not yet present
 git clone https://github.com/akhilerm/dotfiles.git
-cd configs
+cd dotfiles
 git remote set-url origin git@github.com:akhilerm/dotfiles.git
 
 ## script to install default packages
