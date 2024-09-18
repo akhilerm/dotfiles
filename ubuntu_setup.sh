@@ -7,6 +7,7 @@ set -euxo pipefail
 
 # update and upgrade all the default_packages
 sudo apt-get update -y && sudo apt-get upgrade -y
+# installing git here because we need it for cloning the complete repository
 sudo apt-get install git -y
 
 # setup initial directories
@@ -61,22 +62,22 @@ popd
 
 # setup bash configs
 rm .bashrc || true
-ln -s ~/Work/configs/bashrc .bashrc
+ln -s ~/Work/dotfiles/bashrc .bashrc
 
 rm .bash_aliases || true
-ln -s ~/Work/configs/bash_aliases .bash_aliases
+ln -s ~/Work/dotfiles/bash_aliases .bash_aliases
 
 # setup git config
 rm .gitconfig || true
-ln -s ~/Work/configs/gitconfig .gitconfig
+ln -s ~/Work/dotfiles/gitconfig .gitconfig
 
 # setup file for secrets via env
 rm .env || true
-ln -s ~/Work/configs/env .env
+ln -s ~/Work/dotfiles/env .env
 
 #setup vim
 rm .vimrc || true
-ln -s Work/configs/vimrc .vimrc
+ln -s Work/dotfiles/vimrc .vimrc
 sudo update-alternatives --set editor /usr/bin/vim.basic
 
 #setup gpg config
@@ -84,15 +85,12 @@ mkdir .gnupg || true
 echo "enable-ssh-support" >> .gnupg/gpg-agent.conf
 
 # copy the scripts and binaries
-for script_file in ~/Work/configs/bin/*; do
+for script_file in ~/Work/dotfiles/bin/*; do
   # symlink all scripts
   script_file="${script_file##*/}"
 	# remove the .sh extension while creating symlink
-  ln -s ~/Work/configs/bin/$script_file ~/bin/$(basename $script_file .sh)
+  ln -s ~/Work/dotfiles/bin/$script_file ~/bin/$(basename $script_file .sh)
 done
-
-# source the rc files
-source ~/.bashrc
 
 #setup golang directories
 mkdir go
@@ -112,4 +110,6 @@ mkdir ~/go/src/github.com/akhilerm
 # Further instructions
 echo "Additional steps to be completed"
 echo "Run 'gcloud init' to login to gcloud from cli"
+echo "Run 'gpg --import <key-fil>' to import the key"
 echo "Run 'gpg -K --with-keygrip' and add the authentication key to ~/.gnupg/sshcontrol"
+echo "Run 'source ~/.bashrc'. This will switch to a tmux session if the machine is logged in via ssh"
