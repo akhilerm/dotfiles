@@ -72,6 +72,8 @@ ln -s ~/Work/dotfiles/bash_aliases .bash_aliases
 # setup git config
 rm .gitconfig || true
 ln -s ~/Work/dotfiles/gitconfig .gitconfig
+ln -s ~/Work/dotfiles/gitconfig-work .gitconfig-work
+ln -s ~/Work/dotfiles/git-template .git-template
 
 # setup file for secrets via env
 rm .env || true
