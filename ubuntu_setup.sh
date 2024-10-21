@@ -20,6 +20,8 @@ git clone https://github.com/akhilerm/dotfiles.git
 cd dotfiles
 git remote set-url origin git@github.com:akhilerm/dotfiles.git
 
+export DEBIAN_FRONTEND=noninteractive
+
 ## script to install default packages
 DEFAULT_PACKAGES_FILE="./packages/apt/default_packages"
 DEFAULT_PACKAGES=()
