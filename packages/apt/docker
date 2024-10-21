@@ -10,6 +10,7 @@ echo \
 sudo apt-get update -y
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
-sudo groupadd docker
+# command should not fail even if the group already exists
+sudo groupadd docker || true
 sudo usermod -aG docker $USER
 newgrp docker
