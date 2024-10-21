@@ -146,7 +146,8 @@ fi
 source $HOME/.env
 
 # setup golang related paths
-export PATH=$PATH:/usr/local/go/bin
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin
 export GOPATH=${HOME}/go
 export PATH=$PATH:${GOPATH}/bin
 
@@ -165,6 +166,9 @@ fi
 # setup rust related paths
 export PATH="$HOME/.cargo/bin:$PATH"
 . "$HOME/.cargo/env"
+
+# setup android SDK paths
+export PATH="/home/akhil/Android/Sdk/platform-tools:$PATH"
 
 # bash completion for virtual box
 #source $HOME/Work/Bash/vboxmanage-bash-completion/VBoxManage
