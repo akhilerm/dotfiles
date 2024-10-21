@@ -87,6 +87,8 @@ sudo update-alternatives --set editor /usr/bin/vim.basic
 #setup gpg config
 mkdir .gnupg || true
 echo "enable-ssh-support" >> .gnupg/gpg-agent.conf
+# sometimes in tmux setup pinentry-tty is needed for correct working
+# sudo update-alternatives --set pinentry /usr/bin/pinentry-tty
 
 # copy the scripts and binaries
 for script_file in ~/Work/dotfiles/bin/*; do
