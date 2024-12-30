@@ -81,6 +81,12 @@ done
 # source the rc files
 source ~/.zshrc
 
+# ghostty config
+ln -s ~/Work/dotfiles/ghostty-config "/Users/makhil/Library/Application Support/com.mitchellh.ghostty/config"
+
+#setup default text editor
+defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.plain-text;LSHandlerRoleAll=com.sublimetext.4;}'
+
 #setup golang directories
 mkdir go
 mkdir ~/go/bin ~/go/pkg ~/go/src
