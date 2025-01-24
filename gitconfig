@@ -12,5 +12,9 @@
 	ci = commit -S -s
 [commit]
 	gpgsign = true
+[help]
+	autocorrect = 1
+[rebase]
+	autosquash = true
 #[includeIf "gitdir:~/Work/vmware/"]
 #    path = ~/.gitconfig-work
