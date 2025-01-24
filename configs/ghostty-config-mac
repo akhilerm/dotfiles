@@ -1,6 +1,3 @@
 keybind = super+left=previous_tab
 keybind = super+right=next_tab
 font-size = 16
-font-feature = -calt
-font-feature = -liga
-font-feature = -dlig
