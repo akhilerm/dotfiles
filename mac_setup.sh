@@ -27,19 +27,19 @@ cd ~
 
 # setup zsh configs
 rm .zshrc || true
-ln -s ~/Work/dotfiles/zshrc .zshrc
+ln -s ~/Work/dotfiles/configs/zshrc .zshrc
 
 # bash aliases will be used by zsh for aliasing in mac
 rm .bash_aliases || true
-ln -s ~/Work/dotfiles/bash_aliases .aliases
+ln -s ~/Work/dotfiles/configs/bash_aliases .aliases
 
 # setup git config
 rm .gitconfig || true
-ln -s ~/Work/dotfiles/gitconfig .gitconfig
+ln -s ~/Work/dotfiles/configs/gitconfig .gitconfig
 
 # setup git config for work
 rm .gitconfig-work || true
-ln -s ~/Work/dotfiles/gitconfig-work .gitconfig-work
+ln -s ~/Work/dotfiles/configs/gitconfig-work .gitconfig-work
 
 # setup file for secrets via env
 rm .env || true
@@ -47,7 +47,7 @@ ln -s ~/Work/dotfiles/env .env
 
 #setup vim
 rm .vimrc || true
-ln -s Work/dotfiles/vimrc .vimrc
+ln -s Work/dotfiles/configs/vimrc .vimrc
 
 #setup gpg config
 mkdir .gnupg || true
@@ -82,7 +82,7 @@ done
 source ~/.zshrc
 
 # ghostty config
-ln -s ~/Work/dotfiles/ghostty-config "/Users/makhil/Library/Application Support/com.mitchellh.ghostty/config"
+ln -s ~/Work/dotfiles/configs/ghostty-config "/Users/makhil/Library/Application Support/com.mitchellh.ghostty/config"
 
 #setup default text editor
 defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.plain-text;LSHandlerRoleAll=com.sublimetext.4;}'
