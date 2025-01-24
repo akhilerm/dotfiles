@@ -125,6 +125,10 @@ source /usr/share/bash-completion/completions/git
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+# work/employer specific aliases
+if [ -f "$HOME/.aliases_work" ]; then
+  source $HOME/.aliases_work
+fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
