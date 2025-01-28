@@ -1,3 +1,5 @@
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
+config-file = ?config-mac
+config-file = ?config-linux

@@ -82,7 +82,8 @@ done
 source ~/.zshrc
 
 # ghostty config
-ln -s ~/Work/dotfiles/configs/ghostty-config "/Users/makhil/Library/Application Support/com.mitchellh.ghostty/config"
+ln -s ~/Work/dotfiles/configs/ghostty-config "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
+ln -s ~/Work/dotfiles/configs/ghostty-config-mac "$HOME/Library/Application Support/com.mitchellh.ghostty/config-mac"
 
 #setup default text editor
 defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.plain-text;LSHandlerRoleAll=com.sublimetext.4;}'
