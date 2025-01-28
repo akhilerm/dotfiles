@@ -171,6 +171,9 @@ fi
 export PATH="$HOME/.cargo/bin:$PATH"
 . "$HOME/.cargo/env"
 
+# setup zig
+export PATH="/opt/zig:$PATH"
+
 # setup android SDK paths
 export PATH="/home/akhil/Android/Sdk/platform-tools:$PATH"
 
