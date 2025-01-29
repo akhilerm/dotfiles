@@ -1,2 +1,6 @@
 keybind = alt+right=next_tab
 keybind = alt+left=previous_tab
+keybind = ctrl+shift+left=goto_split:previous
+keybind = ctrl+shift+right=goto_split:next
+keybind = alt+D=new_split:right
+keybind = alt+shift+D=new_split:down
