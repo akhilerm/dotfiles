@@ -81,8 +81,12 @@ ln -s ~/Work/dotfiles/env .env
 
 #setup vim
 rm .vimrc || true
-ln -s Work/dotfiles/vimrc .vimrc
+ln -s ~/Work/dotfiles/vimrc .vimrc
 sudo update-alternatives --set editor /usr/bin/vim.basic
+
+#setup ghostty
+ln -s ~/Work/dotfiles/configs/ghostty-config ~/.config/ghostty/config
+ln -s ~/Work/dotfiles/configs/ghostty-config-linux ~/.config/ghostty/config-linux
 
 #setup gpg config
 mkdir .gnupg || true
