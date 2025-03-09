@@ -11,6 +11,6 @@ docker run -d \
   -e INSTALL_BOOK_AND_ADVANCED_HTML_OPS=false \
   -e LANGS=en_GB \
   --name stirling-pdf \
-  frooodle/s-pdf:latest
+  docker.stirlingpdf.com/stirlingtools/stirling-pdf:latest
 
 echo "Serving stirling pdf at :$STIRLING_PORT"
