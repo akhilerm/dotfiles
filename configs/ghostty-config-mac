@@ -1,3 +1,5 @@
 keybind = super+left=previous_tab
 keybind = super+right=next_tab
+keybind = ctrl+shift+left=goto_split:previous
+keybind = ctrl+shift+right=goto_split:next
 font-size = 16
