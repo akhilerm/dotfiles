@@ -88,6 +88,11 @@ sudo update-alternatives --set editor /usr/bin/vim.basic
 ln -s ~/Work/dotfiles/configs/ghostty-config ~/.config/ghostty/config
 ln -s ~/Work/dotfiles/configs/ghostty-config-linux ~/.config/ghostty/config-linux
 
+# setup npm
+mkdir -p ~/.npm-global
+rm .npmrc || true
+echo "prefix=$HOME/.npm-global" >> .npmrc
+
 #setup gpg config
 mkdir .gnupg || true
 echo "enable-ssh-support" >> .gnupg/gpg-agent.conf

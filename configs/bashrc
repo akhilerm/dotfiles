@@ -175,7 +175,10 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/opt/zig:$PATH"
 
 # setup android SDK paths
-export PATH="/home/akhil/Android/Sdk/platform-tools:$PATH"
+export PATH="$HOME/Android/Sdk/platform-tools:$PATH"
+
+#setup npm paths
+export PATH=$HOME/.npm-global/bin:$PATH
 
 # bash completion for virtual box
 #source $HOME/Work/Bash/vboxmanage-bash-completion/VBoxManage
