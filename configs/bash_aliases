@@ -14,6 +14,8 @@ alias ocid='cd "${GOPATH}"/src/github.com/opencontainers'
 
 #exclude grepping through .git folders and make case insensitive
 alias grep='grep -i --exclude-dir=\.git --color=auto'
+#grep with context
+alias grepc='grep -C 5'
 
 #generate output in human readable form
 alias du='du -h'
