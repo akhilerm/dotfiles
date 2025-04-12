@@ -1,0 +1,10 @@
+#! /bin/bash
+
+# find latest version of yaak
+latest_version=$(curl -s https://api.github.com/repos/mountain-loop/yaak/releases/latest | jq --raw-output .tag_name)
+download_url="https://github.com/mountain-loop/yaak/releases/download/${latest_version}/yaak_${latest_version#v}_amd64.deb"
+
+# download, install and remove the deb
+wget -o /tmp/yaak.deb --show-progress "${download_url}"
+sudo dpkg -i /tmp/yaak.deb
+rm /tmp/yaak.deb
