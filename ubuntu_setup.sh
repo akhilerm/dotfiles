@@ -64,16 +64,16 @@ popd
 
 # setup bash configs
 rm .bashrc || true
-ln -s ~/Work/dotfiles/bashrc .bashrc
+ln -s ~/Work/dotfiles/configs/bashrc .bashrc
 
 rm .bash_aliases || true
-ln -s ~/Work/dotfiles/bash_aliases .bash_aliases
+ln -s ~/Work/dotfiles/configs/bash_aliases .bash_aliases
 
 # setup git config
 rm .gitconfig || true
-ln -s ~/Work/dotfiles/gitconfig .gitconfig
-ln -s ~/Work/dotfiles/gitconfig-work .gitconfig-work
-ln -s ~/Work/dotfiles/git-template .git-template
+ln -s ~/Work/dotfiles/configs/gitconfig .gitconfig
+ln -s ~/Work/dotfiles/configs/gitconfig-work .gitconfig-work
+ln -s ~/Work/dotfiles/configs/git-template .git-template
 
 # setup file for secrets via env
 rm .env || true
@@ -81,7 +81,7 @@ ln -s ~/Work/dotfiles/env .env
 
 #setup vim
 rm .vimrc || true
-ln -s ~/Work/dotfiles/vimrc .vimrc
+ln -s ~/Work/dotfiles/configs/vimrc .vimrc
 sudo update-alternatives --set editor /usr/bin/vim.basic
 
 #setup ghostty
