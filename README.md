@@ -1,6 +1,6 @@
 # Configuration
 
-Configuration to run on Ubuntu 22.04 to setup everything to get a working enviroment
+Configuration to run on Ubuntu 24.04 / MacOS Sequoia to setup everything to get a working enviroment
 
 ## How to
 ### Ubuntu
