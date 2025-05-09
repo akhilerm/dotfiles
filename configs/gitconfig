@@ -10,6 +10,7 @@
 	defaultBranch = main
 [alias]
 	ci = commit -S -s
+	reverts = revert -s
 [commit]
 	gpgsign = true
 [help]
