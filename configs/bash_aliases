@@ -59,6 +59,11 @@ __git_complete gp _git_push
 alias gst='git status --short'
 __git_complete gst _git_status
 
+# function to list most recently active 10 branches
+gbs() {
+	git for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:green)%(committerdate:relative)%(color:reset) - %(contents:subject)' | head -n 10
+}
+
 #use GUI diff tool which comes along with goland
 gdiff() {
 	goland diff $1 $2
