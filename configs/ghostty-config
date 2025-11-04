@@ -1,5 +1,6 @@
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
+shell-integration-features = ssh-terminfo
 config-file = ?config-mac
 config-file = ?config-linux
